@@ -27,6 +27,7 @@ public class SysUserServiceImpl implements SysUserService {
     public SysUser login(String usrName, String usrPassword) {
         List<SysUser> users=sysUserRepository.findByUsrNameAndUsrPassword(usrName,usrPassword);
         if (users != null && users.size()==1) {
+            System.out.println("===测试git");
             return users.get(0);
         }
         return null;
