@@ -49,6 +49,7 @@ public class LoginController {
                 //4、执行登录
                 currentUser.login(token);
                 System.out.println("===测试git");
+                System.out.println("=====第二次");
 
             } catch ( AuthenticationException ae ) {
                 model.addAttribute("msg", ae.getMessage());// 登录失败移除用户
