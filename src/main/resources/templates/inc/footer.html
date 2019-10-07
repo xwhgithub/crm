@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<!-- footer content -->
+<footer th:fragment="footer">
+    <div class="pull-right">
+        Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
+    </div>
+    <div class="clearfix"></div>
+    <!--js -->
+    <script th:src="@{/js/jquery.min.js}" src="../static/js/jquery.min.js"></script>
+    <script th:src="@{/js/bootstrap.min.js}" src="../static/js/bootstrap.min.js"></script>
+    <script th:src="@{/js/fastclick.js}" src="../static/js/fastclick.js"></script>
+    <script th:src="@{/js/nprogress.js}" src="../static/js/nprogress.js"></script>
+    <script th:src="@{/js/jquery.mCustomScrollbar.concat.min.js}"
+            src="../static/js/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script th:src="@{/js/icheck.min.js}" src="../static/js/icheck.min.js"></script>
+    <script th:src="@{/js/dropzone.js}" src="../static/js/dropzone.js"></script>
+    <script th:src="@{/js/custom.min.js}" src="../static/js/custom.min.js"></script>
+    <script th:src="@{/js/toastr.min.js}" src="../static/js/toastr.min.js"></script>
+    <script>
+
+        // 基础版的serializeObject
+        $.fn.serializeObject = function () {
+            var o = {};
+            var arr = this.serializeArray();
+            $.each(arr, function () {
+                if (o[this.name]) {
+                    // 数组处理
+                    if (!o[this.name].push) {
+                        o[this.name] = [o[this.name]];
+                    }
+                    o[this.name].push(this.value || '');
+                } else {
+                    // 非数组
+                    o[this.name] = this.value || '';
+                }
+            });
+            return o;
+        }
+
+        toastr.options = {
+            "closeButton": false,
+            "debug": false,
+            "positionClass": "toast-top-center",
+            "onclick": null,
+            "showDuration": "300",
+            "hideDuration": "1000",
+            "timeOut": "5000",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+        }
+
+    </script>
+</footer>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" layout:decorate="layout"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!-- page content -->
+<div layout:fragment="content" class="right_col" role="main">
+    <div class="row">
+        <div class="col-lg-1">
+            欢迎您 <span th:text="${session.sessionUser.usrName} "></span>！
+        </div>
+    </div>
+</div>
+<!-- /page content -->
+</body>
+</html>

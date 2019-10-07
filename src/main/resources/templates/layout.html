@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head th:replace="inc/head :: head"></head>
+
+<body class="nav-md">
+<div class="container body">
+    <div class="main_container">
+        <div th:replace="inc/left :: left"></div>
+        <div th:replace="inc/top :: top"></div>
+        <!-- page content -->
+        <div layout:fragment="content" class="right_col" role="main"></div>
+        <!-- /page content -->
+
+        <div th:replace="inc/footer :: footer"></div>
+        <!-- /footer content -->
+    </div>
+</div>
+
+<div layout:fragment="other"></div>
+</body>
+<div layout:fragment="bizJsInclude"></div>
+<script layout:fragment="bizJs"></script>
+</html>

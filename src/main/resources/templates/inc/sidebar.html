@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<!-- sidebar menu -->
+<div th:fragment="sidebar" id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+    <div class="menu_section">
+        <h3>&nbsp;</h3>
+        <ul class="nav side-menu">
+            <li th:each="right:${session.sessionUser.role.rights}" th:if="${right.rightType eq 'Folder'}">
+                <a><i class="fa fa-list-ul"></i> [[${right.rightText}]] <span class="fa fa-chevron-down"></span></a>
+                <ul class="nav child_menu">
+                    <li th:each="right_in:${session.sessionUser.role.rights}"
+                        th:if="${right_in.rightParentCode eq right.rightCode}">
+                        <a th:href="@{${right_in.rightUrl}}" href="javascript:alert('功能尚未实现.');"><i></i>
+                            [[${right_in.rightText}]]</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+
+    </div>
+    <!-- /sidebar menu -->
+</div>
+<!-- /sidebar menu -->

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>客户关系管理系统</title>
+
+    <!-- Bootstrap -->
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link th:href="@{/css/font-awesome.min.css}" rel="stylesheet">
+    <!-- NProgress -->
+    <link th:href="@{/css/nprogress.css}" rel="stylesheet">
+    <!-- Custom Theme Style -->
+    <link th:href="@{/css/custom.min.css}" rel="stylesheet">
+</head>
+
+<body class="login">
+<div>
+    <a class="hiddenanchor" id="signup"></a>
+    <a class="hiddenanchor" id="signin"></a>
+
+    <div class="login_wrapper">
+        <div class="animate form login_form">
+            <!--shiro:guest  验证当前用户是否为"访客"，即还未登录的情况下，我们显示下面select标签中的内容-->
+            <section class="login_content" shiro:guest>
+                <form method="post" th:action="@{/login.html}">
+                    <h1>客户关系管理系统</h1>
+                    <div th:text="${msg}" style="color: red"></div>
+                    <div>
+                        <input type="text" name="usrName" class="form-control" placeholder="用户名" required=""/>
+                    </div>
+                    <div>
+                        <input type="password" name="usrPassword" class="form-control" placeholder="密码" required=""/>
+                    </div>
+                    <div>
+                        <button class="btn btn-default" type="submit">登录</button>
+                    </div>
+
+                    <div class="clearfix"></div>
+
+                    <div class="separator">
+                        <div class="clearfix"></div>
+                        <br/>
+
+                        <div>
+                            <h1><i class="fa fa-paw"></i> 郴州科泰学院</h1>
+                            <p>©2019 All Rights Reserved. 郴州科泰学院</p>
+                        </div>
+                    </div>
+                </form>
+            </section>
+
+            <!--shiro:authenticated  已认证通过的用户，即在用户已登录的情况下，我们显示下面select标签中的内容-->
+           <section shiro:authenticated>
+                <h3>欢迎您：
+                    <shiro:principal></shiro:principal>
+                    ，您已经登录，<i id="second">3</i>秒后进入首页
+                </h3>
+                <script>
+                    var i = 3;
+                    setInterval(function () {
+                        i--;
+                        document.getElementById("second").innerText = i;
+                        if (i == 1) {
+                            window.location.href = "index.html"
+                        }
+                    }, 1000);
+
+                </script>
+            </section>
+        </div>
+
+    </div>
+</div>
+</body>
+</html>

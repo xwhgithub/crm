@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<div th:fragment="pagination" class="col-sm-12">
+    <nav class="pull-right">
+        <ul class="pagination">
+            <li th:classappend="${page.first ? 'disabled' : ''}">
+                <a th:href="${page.first ? 'javascript:;': 'javascript:goPage(1);'}" href="#">&laquo;</a>
+            </li>
+            <li th:each="i:${#numbers.sequence(1, page.totalPages)}"
+                th:classappend="${i == page.number + 1 ? 'active' : ''}">
+                <a th:href="'javascript:goPage('+ ${i} +');'" href="#" th:text="${i}">1</a>
+            </li>
+            <li th:classappend="${page.last ? 'disabled' : ''}">
+                <a th:href="${page.last ? 'javascript:;': 'javascript:goPage('+ page.totalPages +');'}"
+                   href="#">&raquo;</a>
+            </li>
+        </ul>
+    </nav>
+    <script>
+        function goPage(pageNo, pageSize) {
+            if (!pageNo) {
+                pageNo = 1;
+            }
+            if (!pageSize) {
+                pageSize = 5;
+            }
+            $("#form-page-no").val(pageNo);
+            $("#form-page-size").val(pageSize);
+            $("#search-form").submit();
+        }
+    </script>
+</div>

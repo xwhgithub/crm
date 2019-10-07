@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="head">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title> 客户关系管理系统 </title>
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+    <link th:href="@{/css/font-awesome.min.css}" rel="stylesheet">
+    <link th:href="@{/css/nprogress.css}" rel="stylesheet">
+    <link th:href="@{/css/green.css}" rel="stylesheet">
+    <link th:href="@{/css/bootstrap-progressbar-3.3.4.min.css}" rel="stylesheet">
+    <link th:href="@{/css/jqvmap.min.css}" rel="stylesheet"/>
+    <link th:href="@{/css/custom.min.css}" rel="stylesheet">
+    <link th:href="@{/css/toastr.css}" rel="stylesheet">
+    <!-- 获取项目路径-->
+    <script th:inline="javascript" type="text/javascript">
+        /*<![CDATA[*/
+        var js_ctx = /*[[@{/}]]*/ '';
+        /*]]>*/
+        if (js_ctx == "/") {
+            js_ctx = "";
+        }
+        console.log(js_ctx);
+    </script>
+</head>
